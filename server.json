@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "link.freelance/mcp",
+  "title": "freelance.link",
+  "description": "Keep your freelance.link availability current: projects, absences and your waitlist.",
+  "version": "1.0.0",
+  "websiteUrl": "https://freelance.link/mcp",
+  "icons": [
+    {
+      "src": "https://freelance.link/apple-touch-icon.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "180x180"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://freelance.link/mcp"
+    }
+  ]
+}

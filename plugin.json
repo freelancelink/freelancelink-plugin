@@ -1,0 +1,92 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "freelance-link",
+  "version": "1.0.0",
+  "description": "Keep your freelance.link availability current: projects, absences and your waitlist.",
+  "author": {
+    "name": "Florian Mielke",
+    "email": "hey@freelance.link",
+    "url": "https://freelance.link"
+  },
+  "homepage": "https://freelance.link/mcp",
+  "keywords": ["freelance", "availability", "projects", "absences", "waitlist"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "freelance.link",
+        "shortDescription": "Keep your availability current",
+        "longDescription": "freelance.link shows when you have time. Tell your agent about a new project, an extension or a vacation, and your public profile, badge and open data update. Read your status, projects, absences and waitlist, add, change or delete projects and absences, and confirm that your availability is still correct. People on your waitlist get an email only when you ask for it. Project names are private notes that only you and your agent see. Requires a freelance.link account.",
+        "developerName": "Florian Mielke",
+        "category": "Productivity",
+        "capabilities": ["Read your availability", "Maintain projects and absences", "Confirm your availability", "Notify your waitlist on request"],
+        "websiteURL": "https://freelance.link",
+        "supportURL": "https://freelance.link/mcp",
+        "privacyPolicyURL": "https://freelance.link/privacy",
+        "termsOfServiceURL": "https://freelance.link/terms",
+        "defaultPrompt": [
+          "What does my freelance.link profile say about my availability?",
+          "My current project was extended by four weeks. Update freelance.link.",
+          "I'm out next week. Add an absence."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read the availability of the review account with read-only access.",
+              "prompt": "What does my freelance.link profile say about my availability, and which projects and absences are coming up?",
+              "tools_triggered": "get_status, list_projects, list_absences",
+              "expected_behavior": "The agent reports the status sentence, the first free date and the upcoming projects Demo: Shop relaunch, Demo: Extension open and Demo: API audit plus one absence. Nothing changes."
+            },
+            {
+              "description": "Mark the tentative extension as booked with write access.",
+              "prompt": "The extension is signed. Mark the project Demo: Extension open as booked.",
+              "tools_triggered": "list_projects, update_project",
+              "expected_behavior": "Only the commitment of Demo: Extension open changes to booked. The agent reports whether the first free date moved and how many people wait. It does not notify the waitlist."
+            },
+            {
+              "description": "Add a project with write access.",
+              "prompt": "Add a booked project called Demo: Workshop series, starting the first Monday of next month, for four weeks at two days a week.",
+              "tools_triggered": "create_project",
+              "expected_behavior": "One booked project with these dates and two days per week is stored. The agent reports the result and whether the first free date moved, without notifying the waitlist."
+            },
+            {
+              "description": "Add an absence with write access.",
+              "prompt": "I'm out next week from Monday to Friday. Add that to freelance.link.",
+              "tools_triggered": "create_absence",
+              "expected_behavior": "One absence from next Monday to next Friday is stored without a reason. The agent confirms it."
+            },
+            {
+              "description": "Notify the waitlist after an explicit request with waitlist access.",
+              "prompt": "Delete the project Demo: Shop relaunch, it was cancelled. Then notify my waitlist, I approve sending that email.",
+              "tools_triggered": "list_projects, delete_project, notify_waitlist",
+              "expected_behavior": "The project is deleted, the first free date moves earlier and the waitlist is notified once. The email goes to the review mailbox only."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Do not notify the waitlist without being asked.",
+              "prompt": "Delete the project Demo: API audit, it was cancelled.",
+              "expected_behavior": "The project is deleted. The agent may mention the waitlist or ask whether to notify it, but it does not call notify_waitlist."
+            },
+            {
+              "description": "Attempt a write with a connection granted only read access.",
+              "prompt": "Delete the project Demo: API audit using this read-only connection. Do not reconnect.",
+              "expected_behavior": "Nothing is deleted. The agent explains the missing write permission; if it calls the tool, the server rejects it with insufficient_scope."
+            },
+            {
+              "description": "Out of scope request.",
+              "prompt": "Write an invoice for my client for last month's work on the shop relaunch.",
+              "expected_behavior": "The agent does not call any freelance.link tool to create an invoice and explains that freelance.link only manages availability."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Initial package for the freelance.link remote MCP server."
+      }
+    }
+  }
+}

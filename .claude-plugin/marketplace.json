@@ -1,0 +1,15 @@
+{
+  "name": "freelancelink",
+  "description": "freelance.link plugin for Claude Code.",
+  "owner": {
+    "name": "Florian Mielke",
+    "email": "hey@freelance.link"
+  },
+  "plugins": [
+    {
+      "name": "freelance-link",
+      "source": "./",
+      "description": "Keep your freelance.link availability current: projects, absences and your waitlist."
+    }
+  ]
+}

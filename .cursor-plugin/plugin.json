@@ -1,0 +1,14 @@
+{
+  "name": "freelance-link",
+  "version": "1.0.0",
+  "description": "Keep your freelance.link availability current: projects, absences and your waitlist.",
+  "author": {
+    "name": "Florian Mielke",
+    "email": "hey@freelance.link"
+  },
+  "homepage": "https://freelance.link/mcp",
+  "repository": "https://github.com/FlorianMielke/freelancelink-plugin",
+  "license": "MIT",
+  "keywords": ["freelance", "availability", "projects", "absences", "waitlist", "mcp"],
+  "logo": "assets/icon.png"
+}

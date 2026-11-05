@@ -1,0 +1,20 @@
+{
+  "name": "freelancelink",
+  "interface": {
+    "displayName": "freelance.link"
+  },
+  "plugins": [
+    {
+      "name": "freelance-link",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "freelance_link": {
+      "type": "streamable-http",
+      "url": "https://freelance.link/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            },
+            "defaultScopes": [
+              "availability:read",
+              "availability:write",
+              "waitlist:notify"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
