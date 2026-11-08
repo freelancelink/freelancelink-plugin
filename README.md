@@ -16,7 +16,7 @@ Requires a freelance.link account and Claude, Claude Code, Codex, ChatGPT or Cur
 Claude Code:
 
 ```bash
-claude plugin install freelance-link --marketplace FreelanceLink/freelancelink-plugin
+claude plugin install freelance-link --marketplace freelancelink/freelancelink-plugin
 ```
 
 In Claude, connect freelance.link from the [Claude directory](https://claude.ai/directory/freelance-link). In ChatGPT, add `https://freelance.link/mcp` as a connector. In Cursor, clone this repository into `~/.cursor/plugins/local/freelance-link` and run **Developer: Reload Window**.

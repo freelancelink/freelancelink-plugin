@@ -10,7 +10,7 @@
   },
   "homepage": "https://freelance.link/mcp",
   "privacyPolicyUrl": "https://freelance.link/privacy",
-  "repository": "https://github.com/FreelanceLink/freelancelink-plugin",
+  "repository": "https://github.com/freelancelink/freelancelink-plugin",
   "license": "MIT",
   "icon": "./assets/icon.png",
   "keywords": ["freelance", "availability", "projects", "absences", "waitlist", "mcp"]
