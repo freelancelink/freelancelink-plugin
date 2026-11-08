@@ -20,7 +20,7 @@
         "category": "Productivity",
         "capabilities": ["Read your availability", "Maintain projects and absences", "Confirm your availability", "Notify your waitlist on request"],
         "websiteURL": "https://freelance.link",
-        "supportURL": "https://freelance.link/mcp",
+        "supportURL": "https://freelance.link/mcp#support",
         "privacyPolicyURL": "https://freelance.link/privacy",
         "termsOfServiceURL": "https://freelance.link/terms",
         "defaultPrompt": [
