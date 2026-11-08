@@ -7,7 +7,7 @@
     "email": "hey@freelance.link"
   },
   "homepage": "https://freelance.link/mcp",
-  "repository": "https://github.com/FlorianMielke/freelancelink-plugin",
+  "repository": "https://github.com/FreelanceLink/freelancelink-plugin",
   "license": "MIT",
   "keywords": ["freelance", "availability", "projects", "absences", "waitlist", "mcp"],
   "logo": "assets/icon.png"
